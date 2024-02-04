@@ -3,38 +3,47 @@
 #include <vector>
 #include <iostream>
 
-struct Question {
-	std::string questionText;
-	std::vector<std::string> options;
+// Define a structure to store each question and its options
+struct MCQ {
+    std::string questionText;
+    std::vector<std::string> options;
 };
 
 void mcq_maker()
 {
-	int ques_amount(q_amount()); //Initialize ques_amount with q_amount() to get the amount of questions
-	
-	std::vector<Question> questions; // Vector to store all the questions
+    int ques_amount(q_amount()); // Initialize ques_amount with q_amount() to get the amount of questions
 
-	int q_counter{0}; // Initialize q_counter to decide the iteration count
-	do
-	{
-		Question currentQuestion; // Create a new Question object for each iteration
+    std::vector<MCQ> questions{}; // Create a vector called questions that will hold data of MCQ type
 
-		std::string question{};
-		std::cout << "\nEnter question #" << q_counter + 1 << ": ";
-		std::getline(std::cin >> std::ws, question);
-		std::cout << question << "\n" << "This is question #" << q_counter + 1 << '\n'; // comment this out later
-		
-		int option_num(opt_amount()); // Initialize option_num to decide how many options to make 
+    int q_counter{ 0 }; // Initialize q_counter to decide the iteration count
+    do
+    {
+        MCQ currentQuestion{}; // Create a new Question structure for the current question
 
-		//Loop for making the options 
-		for (int option{0}; option < option_num; ++option) {
-			std::string optionText{};
-			std::cout << "\nEnter option #" << option + 1 << ": ";
-			std::getline(std::cin >> std::ws, optionText);
-			std::cout << "This is option " << option + 1 << ": " << optionText << '\n'; // Comment this out later
-		}
+        std::cout << "\nEnter question #" << q_counter + 1 << ": ";
+        std::getline(std::cin >> std::ws, currentQuestion.questionText);
 
-		q_counter++;
+        int option_num(opt_amount()); // Initialize option_num to decide how many options to make
 
-	} while (q_counter < ques_amount);
+        // Loop for making the options
+        for (int option{ 0 }; option < option_num; ++option) {
+            std::string optionText{};
+            std::cout << "\nEnter option #" << option + 1 << ": ";
+            std::getline(std::cin >> std::ws, optionText);
+            currentQuestion.options.push_back(optionText);
+        }
+
+        questions.push_back(currentQuestion); // Store the current question in the vector
+
+        q_counter++;
+
+    } while (q_counter < ques_amount);
+
+    // Print out the stored questions and options for debugging
+    for (const auto& question : questions) {
+        std::cout << "\nQuestion: " << question.questionText << "\nOptions:\n";
+        for (size_t i = 0; i < question.options.size(); ++i) {
+            std::cout << i + 1 << ". " << question.options[i] << '\n';
+        }
+    }
 }
