@@ -3,21 +3,13 @@
 #include <vector>
 #include <iostream>
 
-struct Question {
-	std::string questionText;
-	std::vector<std::string> options;
-};
-
 void mcq_maker()
 {
 	int ques_amount(q_amount()); //Initialize ques_amount with q_amount() to get the amount of questions
 	
-	std::vector<Question> questions; // Vector to store all the questions
-
 	int q_counter{0}; // Initialize q_counter to decide the iteration count
 	do
 	{
-		Question currentQuestion; // Create a new Question object for each iteration
 
 		std::string question{};
 		std::cout << "\nEnter question #" << q_counter + 1 << ": ";
