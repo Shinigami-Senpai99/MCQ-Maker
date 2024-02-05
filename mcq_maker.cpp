@@ -1,32 +1,38 @@
-#include "mcq_maker.h"
-#include <string>
-#include <vector>
+#include "struct_mcq.h"
+#include "q_opt_amount.h"
 #include <iostream>
 
-void mcq_maker()
+
+std::vector<MCQ> mcq_maker()
 {
-	int ques_amount(q_amount()); //Initialize ques_amount with q_amount() to get the amount of questions
-	
-	int q_counter{0}; // Initialize q_counter to decide the iteration count
-	do
-	{
+    int ques_amount(q_amount()); // Initialize ques_amount with q_amount() to get the amount of questions
 
-		std::string question{};
-		std::cout << "\nEnter question #" << q_counter + 1 << ": ";
-		std::getline(std::cin >> std::ws, question);
-		std::cout << question << "\n" << "This is question #" << q_counter + 1 << '\n'; // comment this out later
-		
-		int option_num(opt_amount()); // Initialize option_num to decide how many options to make 
+    std::vector<MCQ> questions{}; // Create a vector called questions that will hold data of MCQ type
 
-		//Loop for making the options 
-		for (int option{0}; option < option_num; ++option) {
-			std::string optionText{};
-			std::cout << "\nEnter option #" << option + 1 << ": ";
-			std::getline(std::cin >> std::ws, optionText);
-			std::cout << "This is option " << option + 1 << ": " << optionText << '\n'; // Comment this out later
-		}
+    int q_counter{ 0 }; // Initialize q_counter to decide the iteration count
+    do
+    {
+        MCQ currentQuestion{}; // Create a new Question structure for the current question
 
-		q_counter++;
+        std::cout << "\nEnter question #" << q_counter + 1 << ": ";
+        std::getline(std::cin >> std::ws, currentQuestion.questionText);
 
-	} while (q_counter < ques_amount);
+        int option_num(opt_amount()); // Initialize option_num to decide how many options to make
+
+        // Loop for making the options
+        for (int o_counter{ 0 }; o_counter < option_num; ++o_counter) {
+            std::string optionText{};
+            std::cout << "\nEnter option #" << o_counter + 1 << ": ";
+            std::getline(std::cin >> std::ws, optionText);
+            currentQuestion.options.push_back(optionText);
+        }
+
+        questions.push_back(currentQuestion); // Store the current question in the vector
+
+        q_counter++;
+
+    } while (q_counter < ques_amount);
+
+    return questions;
+
 }

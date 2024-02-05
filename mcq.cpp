@@ -1,31 +1,40 @@
-#include "mcq_maker.h"
+#include "struct_mcq.h"
 #include <iostream>
 
-int main()
-{
-	int mode{};
-	
-	std::cout << "1. MCQ Maker\n2. MCQ Taker\n\n" << "Mode: ";
-
-	do 
+	int main()
 	{
-		std::cin >> mode;
+		int mode{};
+		std::vector<MCQ> test{};
 
-		switch (mode)
+		std::cout << "1. MCQ Maker\n2. MCQ Taker\n\n" << "Mode: ";
+
+		do 
 		{
-		case 1:
-			std::cout << "\nInitializing MCQ Maker...\n\n";
-			mcq_maker();
-			break;
-		case 2:
-			std::cout << "\nChoose MCQ Test:\n\n";
-			break;
-		default:
-			std::cout << "\nInvalid choice. Please enter 1 or 2.\n\n" << "Mode: ";
-			break;
-		}
-		
-	} while (mode != 1 && mode != 2);
+			std::cin >> mode;
 
-	return 0;
-}
+			switch (mode)
+			{
+			case 1:
+				std::cout << "\nInitializing MCQ Maker...\n\n";
+				test = mcq_maker();
+				break;
+			case 2:
+				std::cout << "\nChoose MCQ Test:\n\n";
+				break;
+			default:
+				std::cout << "\nInvalid choice. Please enter 1 or 2.\n\n" << "Mode: ";
+				break;
+			}
+		
+		} while (mode != 1 && mode != 2);
+
+		// Print out the stored questions and options for debugging using a range loop
+		for (const auto& question : test) {
+			std::cout << "\nQuestion: " << question.questionText << "\nOptions:\n";
+			for (size_t i = 0; i < question.options.size(); ++i) {
+				std::cout << i + 1 << ". " << question.options[i] << '\n';
+			}
+		}
+
+		return 0;
+	}
