@@ -26,7 +26,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="mcq_maker.h">
+    <ClInclude Include="q_opt_amount.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="struct_mcq.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

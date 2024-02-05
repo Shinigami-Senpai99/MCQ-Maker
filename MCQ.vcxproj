@@ -135,7 +135,8 @@
     <ClCompile Include="mcq_maker.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="mcq_maker.h" />
+    <ClInclude Include="q_opt_amount.h" />
+    <ClInclude Include="struct_mcq.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
