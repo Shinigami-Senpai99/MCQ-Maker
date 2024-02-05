@@ -28,7 +28,7 @@ int opt_amount()
 			// Invalid input, clear the error flag and discard input
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cout << "Invalid input. Please enter a valid integer.\n";
+			std::cout << "Invalid input\nEnter a valid integer: ";
 		}
 	}
 }
