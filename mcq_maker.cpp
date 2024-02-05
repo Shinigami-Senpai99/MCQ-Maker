@@ -27,6 +27,23 @@ std::vector<MCQ> mcq_maker()
             currentQuestion.options.push_back(optionText);
         }
 
+        // Get the integer for the answer
+        std::cout << "\nAnswer: ";
+
+        
+        while (true) {
+            if (std::cin >> currentQuestion.answer && currentQuestion.answer >= 1 && currentQuestion.answer <= option_num) {
+                // Valid input, break out of the loop
+                break;
+            }
+            else {
+                // Invalid input, clear the error flag and discard input
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cout << "Invalid input\nEnter a valid integer: ";
+            }
+        }
+
         questions.push_back(currentQuestion); // Store the current question in the vector
 
         q_counter++;
