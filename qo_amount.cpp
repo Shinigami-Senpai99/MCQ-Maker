@@ -1,6 +1,4 @@
-#include "mcq_maker.h"
 #include <iostream>
-#include <string>
 
 int q_amount()
 {
