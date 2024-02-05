@@ -9,6 +9,7 @@
 struct MCQ {
     std::string questionText;
     std::vector<std::string> options;
+    int answer;
 };
 
 // Forward declared dependencies
