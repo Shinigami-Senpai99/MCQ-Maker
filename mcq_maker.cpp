@@ -1,15 +1,9 @@
-#include "mcq_maker.h"
-#include <string>
-#include <vector>
+#include "struct_mcq.h"
+#include "q_opt_amount.h"
 #include <iostream>
 
-// Define a structure to store each question and its options
-struct MCQ {
-    std::string questionText;
-    std::vector<std::string> options;
-};
 
-void mcq_maker()
+std::vector<MCQ> mcq_maker()
 {
     int ques_amount(q_amount()); // Initialize ques_amount with q_amount() to get the amount of questions
 
@@ -26,9 +20,9 @@ void mcq_maker()
         int option_num(opt_amount()); // Initialize option_num to decide how many options to make
 
         // Loop for making the options
-        for (int option{ 0 }; option < option_num; ++option) {
+        for (int o_counter{ 0 }; o_counter < option_num; ++o_counter) {
             std::string optionText{};
-            std::cout << "\nEnter option #" << option + 1 << ": ";
+            std::cout << "\nEnter option #" << o_counter + 1 << ": ";
             std::getline(std::cin >> std::ws, optionText);
             currentQuestion.options.push_back(optionText);
         }
@@ -39,11 +33,6 @@ void mcq_maker()
 
     } while (q_counter < ques_amount);
 
-    // Print out the stored questions and options for debugging
-    for (const auto& question : questions) {
-        std::cout << "\nQuestion: " << question.questionText << "\nOptions:\n";
-        for (size_t i = 0; i < question.options.size(); ++i) {
-            std::cout << i + 1 << ". " << question.options[i] << '\n';
-        }
-    }
+    return questions;
+
 }
