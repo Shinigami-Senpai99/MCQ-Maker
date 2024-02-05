@@ -34,6 +34,7 @@
 			for (size_t i = 0; i < question.options.size(); ++i) {
 				std::cout << i + 1 << ". " << question.options[i] << '\n';
 			}
+			std::cout << "\nAnswer: " << question.answer << "\n";
 		}
 
 		return 0;
