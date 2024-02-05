@@ -1,6 +1,5 @@
 #ifndef q_opt_amount_h
 #define q_opt_amount_h
-
 // Forward declared dependencies
 int q_amount();
 
