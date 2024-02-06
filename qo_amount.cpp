@@ -1,3 +1,4 @@
+#include "q_opt_amount.h"
 #include <iostream>
 
 int q_amount()
