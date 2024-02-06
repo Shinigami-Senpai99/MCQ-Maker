@@ -26,6 +26,15 @@
 				std::cin.clear();
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 				std::cin >> mode;
+
+				if (mode == 1) {
+					std::cout << "\nInitializing MCQ Maker...\n\n";
+					test = mcq_maker();
+				}
+				else if (mode == 2) {
+					std::cout << "\nChoose MCQ Test:\n\n";
+				}
+				
 				break;
 			}
 		
