@@ -5,6 +5,8 @@
 
 std::vector<MCQ> mcq_maker()
 {
+    std::cout << "\nInitializing MCQ Maker...\n\n";
+
     int ques_amount(q_amount()); // Initialize ques_amount with q_amount() to get the amount of questions
 
     std::vector<MCQ> questions{}; // Create a vector called questions that will hold data of MCQ type

@@ -15,7 +15,6 @@
 			switch (mode)
 			{
 			case 1:
-				std::cout << "\nInitializing MCQ Maker...\n\n";
 				test = mcq_maker();
 				break;
 			case 2:
@@ -28,7 +27,6 @@
 				std::cin >> mode;
 
 				if (mode == 1) {
-					std::cout << "\nInitializing MCQ Maker...\n\n";
 					test = mcq_maker();
 				}
 				else if (mode == 2) {
