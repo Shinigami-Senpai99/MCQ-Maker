@@ -1,6 +1,5 @@
-#include "struct_mcq.h"
+#include "mcq_saver.h"
 #include <iostream>
-#include <fstream>
 
 void mcq_saver(std::vector<MCQ> test)
 {
