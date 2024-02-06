@@ -7,11 +7,11 @@
 		std::vector<MCQ> test{};
 
 		std::cout << "1. MCQ Maker\n2. MCQ Taker\n\n" << "Mode: ";
-
+		
+		std::cin >> mode;
+		
 		do 
 		{
-			std::cin >> mode;
-
 			switch (mode)
 			{
 			case 1:
@@ -23,6 +23,9 @@
 				break;
 			default:
 				std::cout << "\nInvalid choice. Please enter 1 or 2.\n\n" << "Mode: ";
+				std::cin.clear();
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				std::cin >> mode;
 				break;
 			}
 		
