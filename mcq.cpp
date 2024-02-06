@@ -1,3 +1,4 @@
+#include "mcq_saver.h"
 #include "struct_mcq.h"
 #include <iostream>
 
@@ -16,6 +17,7 @@
 			{
 			case 1:
 				test = mcq_maker();
+				mcq_saver(test);
 				break;
 			case 2:
 				std::cout << "\nChoose MCQ Test:\n\n";
