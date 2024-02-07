@@ -27,6 +27,9 @@
     <ClCompile Include="mcq_saver.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="get_valid_int.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="q_opt_amount.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="mcq_saver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="get_valid_int.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

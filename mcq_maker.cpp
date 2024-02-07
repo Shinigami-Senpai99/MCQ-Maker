@@ -1,5 +1,6 @@
 #include "struct_mcq.h"
 #include "q_opt_amount.h"
+#include "get_valid_int.h"
 #include <iostream>
 
 
@@ -32,20 +33,21 @@ std::vector<MCQ> mcq_maker()
         // Get the integer for the answer
         std::cout << "\nAnswer: ";
 
-        
-        while (true) {
-            if (std::cin >> currentQuestion.answer && currentQuestion.answer >= 1 && currentQuestion.answer <= option_num) {
-                // Valid input, break out of the loop
+        do
+        {
+            currentQuestion.answer = get_valid_int();
+            
+            if (currentQuestion.answer < 1 || currentQuestion.answer > option_num)
+            {
+                std::cout << "Invalid Option\nPlease Enter a valid option: ";
+            }
+            else
+            {
                 break;
             }
-            else {
-                // Invalid input, clear the error flag and discard input
-                std::cin.clear();
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::cout << "Invalid input\nEnter a valid integer: ";
-            }
-        }
 
+        } while (currentQuestion.answer >= 1 || currentQuestion.answer <= option_num);
+        
         questions.push_back(currentQuestion); // Store the current question in the vector
 
         q_counter++;

@@ -29,7 +29,7 @@ void mcq_saver(std::vector<MCQ> test)
 
 		// Close the file
 		outputFile.close();
-		std::cout << "\nMCQ test has been saved to mcq_test.txt\n";
+		std::cout << "\nMCQ test has been saved to " << filename + ".txt" << '\n';
 	}
 	else {
 		std::cerr << "Unable to open file for writing.\n";
