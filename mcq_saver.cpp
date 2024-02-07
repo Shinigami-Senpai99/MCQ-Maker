@@ -10,7 +10,8 @@ void mcq_saver(std::vector<MCQ> test)
 	std::ofstream outputFile(filename + ".txt");
 
 	// Check if the file is opened successfully
-	if (outputFile.is_open()) {
+	if (outputFile.is_open()) 
+	{
 
 		// Serialize and write each MCQ object to the file
 		for (const auto& question : test) {
