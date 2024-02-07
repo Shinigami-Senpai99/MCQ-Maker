@@ -1,10 +1,13 @@
 #include "struct_mcq.h"
 #include "q_opt_amount.h"
+#include "get_valid_int.h"
 #include <iostream>
 
 
 std::vector<MCQ> mcq_maker()
 {
+    std::cout << "\nInitializing MCQ Maker...\n\n";
+
     int ques_amount(q_amount()); // Initialize ques_amount with q_amount() to get the amount of questions
 
     std::vector<MCQ> questions{}; // Create a vector called questions that will hold data of MCQ type
@@ -27,6 +30,24 @@ std::vector<MCQ> mcq_maker()
             currentQuestion.options.push_back(optionText);
         }
 
+        // Get the integer for the answer
+        std::cout << "\nAnswer: ";
+
+        do
+        {
+            currentQuestion.answer = get_valid_int();
+            
+            if (currentQuestion.answer < 1 || currentQuestion.answer > option_num)
+            {
+                std::cout << "Invalid Option\nPlease Enter a valid option: ";
+            }
+            else
+            {
+                break;
+            }
+
+        } while (currentQuestion.answer >= 1 || currentQuestion.answer <= option_num);
+        
         questions.push_back(currentQuestion); // Store the current question in the vector
 
         q_counter++;

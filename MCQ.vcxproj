@@ -130,11 +130,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="get_valid_int.cpp" />
+    <ClCompile Include="mcq_saver.cpp" />
     <ClCompile Include="qo_amount.cpp" />
     <ClCompile Include="mcq.cpp" />
     <ClCompile Include="mcq_maker.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="get_valid_int.h" />
+    <ClInclude Include="mcq_saver.h" />
     <ClInclude Include="q_opt_amount.h" />
     <ClInclude Include="struct_mcq.h" />
   </ItemGroup>
